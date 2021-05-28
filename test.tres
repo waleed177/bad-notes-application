@@ -1,0 +1,55 @@
+[gd_resource type="Resource" load_steps=16 format=2]
+
+[ext_resource path="res://scripts/note_format/note_model.gd" type="Script" id=1]
+[ext_resource path="res://scripts/tabs_manager/tabs_model.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/drawing_area/drawing_area_model.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/items/tab_item/tab_item_model.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+text = "Tabaaa"
+_drawing_area = SubResource( 1 )
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 4 )
+text = "Tab"
+_drawing_area = SubResource( 3 )
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 3 )
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 4 )
+text = "Tab"
+_drawing_area = SubResource( 5 )
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 3 )
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 4 )
+text = "Tab"
+_drawing_area = SubResource( 7 )
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 3 )
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 4 )
+text = "Tab"
+_drawing_area = SubResource( 9 )
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+free_tab_id = 0
+tabs = [ SubResource( 2 ), SubResource( 4 ), SubResource( 6 ), SubResource( 8 ), SubResource( 10 ) ]
+
+[resource]
+script = ExtResource( 1 )
+_tabs = SubResource( 11 )

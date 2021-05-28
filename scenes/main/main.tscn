@@ -94,8 +94,15 @@ __meta__ = {
 [node name="CheckboxItem" parent="CanvasLayer/Panel/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 165.0
 
+[node name="Save" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 72.0
+margin_right = 165.0
+margin_bottom = 92.0
+text = "Save"
+
 [connection signal="pressed" from="CanvasLayer/Tabs/HBoxContainer/AddTabButton" to="CanvasLayer/Tabs" method="_on_AddTabButton_pressed"]
 [connection signal="color_changed" from="CanvasLayer/Tools/HBoxContainer/ColorPickerButton" to="CanvasLayer/Tools" method="_on_ColorPickerButton_color_changed"]
 [connection signal="pressed" from="CanvasLayer/Tools/HBoxContainer/SmallSize" to="CanvasLayer/Tools" method="_on_SmallSize_pressed"]
 [connection signal="pressed" from="CanvasLayer/Tools/HBoxContainer/MediumSize" to="CanvasLayer/Tools" method="_on_MediumSize_pressed"]
 [connection signal="pressed" from="CanvasLayer/Tools/HBoxContainer/LargeSize" to="CanvasLayer/Tools" method="_on_LargeSize_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Save" to="." method="_on_Save_pressed"]

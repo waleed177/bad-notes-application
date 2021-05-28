@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "DrawingAreaModel",
+"language": "GDScript",
+"path": "res://prefabs/drawing_area/drawing_area_model.gd"
+}, {
+"base": "Resource",
+"class": "NoteModel",
+"language": "GDScript",
+"path": "res://scripts/note_format/note_model.gd"
+}, {
+"base": "Resource",
+"class": "TabItemModel",
+"language": "GDScript",
+"path": "res://prefabs/items/tab_item/tab_item_model.gd"
+}, {
+"base": "Resource",
+"class": "TabsModel",
+"language": "GDScript",
+"path": "res://scripts/tabs_manager/tabs_model.gd"
+} ]
+_global_script_class_icons={
+"DrawingAreaModel": "",
+"NoteModel": "",
+"TabItemModel": "",
+"TabsModel": ""
+}
+
 [application]
 
 config/name="Notes Application"
@@ -16,6 +44,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
+NoteSaver="*res://scripts/note_format/note_saver.gd"
+TabManager="*res://scripts/tabs_manager/tab_manager.gd"
 GlobalBrush="*res://scripts/global_brush.gd"
 
 [input]

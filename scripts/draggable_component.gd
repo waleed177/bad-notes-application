@@ -12,16 +12,12 @@ func _ready():
 
 func _process(delta):
 	if _dragging:
-		parent.set_position(get_global_mouse_position() - _dragging_offset)
+		parent.set_position(parent.get_global_mouse_position() - _dragging_offset)
 		if not Input.is_mouse_button_pressed(BUTTON_LEFT):
 			_dragging = false
 			emit_signal("dragging_status_changed", false)
-			if parent is Button:
-				parent.disabled = false
-		elif _dragging_initial_position.distance_to(get_global_mouse_position()) > 10:
+		elif _dragging_initial_position.distance_to(parent.get_global_mouse_position()) > 10:
 			emit_signal("dragging_status_changed", true)
-			if parent is Button:
-				parent.disabled = true
 
 func _on_gui_input(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -32,11 +28,9 @@ func _on_gui_input(event: InputEvent):
 			_dragging = false
 			get_tree().set_input_as_handled()
 			emit_signal("dragging_status_changed", false)
-			if parent is Button:
-				parent.disabled = false
 
 func start_dragging():
 	_dragging = true
-	_dragging_offset = get_global_mouse_position() - parent.get_position()
-	_dragging_initial_position = get_global_mouse_position()
+	_dragging_offset = parent.get_global_mouse_position() - parent.get_position()
+	_dragging_initial_position = parent.get_global_mouse_position()
 
