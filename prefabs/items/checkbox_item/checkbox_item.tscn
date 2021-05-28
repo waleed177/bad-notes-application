@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://prefabs/items/item.gd" type="Script" id=1]
+[ext_resource path="res://prefabs/items/checkbox_item/CheckBox.gd" type="Script" id=2]
+
+[node name="CheckboxItem" type="Panel"]
+margin_top = 36.0
+margin_right = 24.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 0, 32 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -137.0
+focus_mode = 0
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
