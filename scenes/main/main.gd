@@ -12,4 +12,8 @@ func _use_drawing_area_deferred(new_area):
 
 
 func _on_Save_pressed():
-	NoteSaver.save()
+	NoteSaver.save_note()
+
+
+func _on_Load_pressed():
+	NoteSaver.load_note()

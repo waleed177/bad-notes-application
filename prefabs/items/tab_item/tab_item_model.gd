@@ -17,3 +17,9 @@ func _set_drawing_area(value: DrawingAreaModel):
 
 func _get_drawing_area() -> DrawingAreaModel:
 	return _drawing_area
+
+func save(path):
+	self.drawing_area.save(path)
+
+func load_model(path):
+	self.drawing_area.load_model(path)
