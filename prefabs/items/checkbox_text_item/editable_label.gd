@@ -1,8 +1,9 @@
 extends Label
 
+signal text_changed(text)
+
 func _ready():
 	$LineEdit.connect("text_entered", self, "_on_text_entered")
-
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
@@ -15,3 +16,4 @@ func _gui_input(event):
 func _on_text_entered(a):
 	text = $LineEdit.text
 	$LineEdit.hide()
+	emit_signal("text_changed", text)

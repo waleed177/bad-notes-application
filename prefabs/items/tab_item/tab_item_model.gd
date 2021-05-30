@@ -1,4 +1,4 @@
-extends Resource
+extends ItemModel
 
 class_name TabItemModel
 
@@ -12,7 +12,6 @@ export(Resource) var _drawing_area
 
 var drawing_area: DrawingAreaModel setget _set_drawing_area, _get_drawing_area
 
-
 func _set_drawing_area(value: DrawingAreaModel):
 	_drawing_area = value
 
@@ -24,3 +23,10 @@ func load_model(path):
 
 func save(path):
 	self.drawing_area.save(path)
+
+func spawn_into(node: Node2D):
+	var Item = load("res://prefabs/items/tab_item/tab_item.tscn")
+	var item = Item.instance()
+	item.setup(self, true)
+	node.add_child(item)
+	return item

@@ -7,6 +7,8 @@ func setup(checkbox_item_model: CheckboxItemModel):
 	_checkbox_item_model = checkbox_item_model
 	set_global_position(_checkbox_item_model.position)
 	$CheckBox.pressed = _checkbox_item_model.checked
+	yield(self, "ready")
+	$ItemComponent._setup_as_draggable()
 
 func _on_CheckBox_toggled(button_pressed):
 	if _checkbox_item_model:

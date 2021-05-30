@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://prefabs/items/item_component/item_component.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/items/checkbox_text_item/editable_label.gd" type="Script" id=2]
 [ext_resource path="res://prefabs/items/checkbox_item/CheckBox.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/items/checkbox_text_item/checkbox_text_item.gd" type="Script" id=4]
 
 [node name="CheckboxItem" type="Panel"]
 margin_right = 165.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,3 +47,7 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="instantiated_item" from="ItemComponent" to="." method="_on_ItemComponent_instantiated_item"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="text_changed" from="Label" to="." method="_on_Label_text_changed"]

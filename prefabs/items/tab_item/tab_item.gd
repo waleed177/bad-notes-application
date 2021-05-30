@@ -2,13 +2,18 @@ extends Control
 
 var _data: TabItemModel
 
-func setup(data: TabItemModel):
+func setup(data: TabItemModel, setup_as_draggable=false):
 	_data = data
+	set_global_position(data.position)
 	$Button.text = data.text
 	data.connect("property_modified", self, "_on_data_property_modified")
 	$Button.connect("pressed", self, "_on_button_pressed")
 	$ItemComponent.connect("instantiated_item", self, "_on_instantiated_item")
-
+	
+	if setup_as_draggable:
+		yield(self, "ready")
+		$ItemComponent._setup_as_draggable()
+	
 func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_RIGHT:
@@ -30,6 +35,7 @@ func _on_dragging_status_changed(dragging):
 
 func _on_instantiated_item(item):
 	item.setup(_data)
+	NoteSaver.register_item(item._data)
 
 func _on_ConfirmationDialog_confirmed():
 	_data.text = $ConfirmationDialog/LineEdit.text
@@ -41,3 +47,6 @@ func _on_data_property_modified(property, value):
 			yield(get_tree(), "idle_frame")
 			yield(get_tree(), "idle_frame")
 			fix_ui_size()
+
+func _process(delta):
+	_data.position = get_global_position()

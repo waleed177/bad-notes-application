@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://prefabs/items/checkbox_item/checkbox_item_model.gd"
 }, {
+"base": "ItemModel",
+"class": "CheckboxTextItemModel",
+"language": "GDScript",
+"path": "res://prefabs/items/checkbox_text_item/checkbox_text_item_model.gd"
+}, {
 "base": "Resource",
 "class": "DrawingAreaModel",
 "language": "GDScript",
@@ -29,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/note_format/note_model.gd"
 }, {
-"base": "Resource",
+"base": "ItemModel",
 "class": "TabItemModel",
 "language": "GDScript",
 "path": "res://prefabs/items/tab_item/tab_item_model.gd"
@@ -41,6 +46,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CheckboxItemModel": "",
+"CheckboxTextItemModel": "",
 "DrawingAreaModel": "",
 "ItemModel": "",
 "NoteModel": "",
