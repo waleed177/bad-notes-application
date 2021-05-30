@@ -19,6 +19,7 @@ func fix_ui_size():
 	rect_min_size = $Button.rect_size
 
 func _on_button_pressed():
+	NoteSaver.set_current_tab(_data)
 	get_tree().current_scene.use_drawing_area(_data.drawing_area.drawing_area_node)
 
 func _on_ItemComponent_instantiated_draggable(draggable):

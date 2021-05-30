@@ -15,7 +15,7 @@ func _ready():
 		_temp_sprite = null
 		_drawing_area.texture = $Canvas/Viewport.get_texture()
 
-func setup(drawing_area):
+func setup(drawing_area: DrawingAreaModel):
 	_drawing_area = drawing_area
 	#TOOD
 	if drawing_area.texture != null:
@@ -23,6 +23,9 @@ func setup(drawing_area):
 		_temp_sprite.texture = drawing_area.texture
 		$Canvas/Viewport.add_child(_temp_sprite)
 		_temp_sprite.position = $Canvas.position
+		
+		for item in drawing_area.items:
+			item.spawn_into(self)
 	else:
 		_drawing_area.texture = $Canvas/Viewport.get_texture()
 	_drawing_area.drawing_area_node = self

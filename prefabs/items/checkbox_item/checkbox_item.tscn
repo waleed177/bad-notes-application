@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://prefabs/items/item_component/item_component.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/items/checkbox_item/CheckBox.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/items/checkbox_item/checkbox_item.gd" type="Script" id=3]
 
 [node name="CheckboxItem" type="Panel"]
 margin_top = 36.0
 margin_right = 24.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 0, 32 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,3 +26,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="instantiated_item" from="ItemComponent" to="." method="_on_ItemComponent_instantiated_item"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

@@ -3,12 +3,20 @@ extends Node
 signal note_loaded(note_model)
 
 var _note_model: NoteModel
+var _current_tab: TabItemModel
 
 func _ready():
 	_note_model = NoteModel.new()
 
 func register_tabs_model(tabs_model: TabsModel):
 	_note_model.tabs = tabs_model
+
+func register_item(item: ItemModel):
+	if _current_tab != null:
+		_current_tab.drawing_area.register_item(item)
+
+func set_current_tab(tab: TabItemModel):
+	_current_tab = tab
 
 func save_note(path = "/home/waldo/Documents/GodotProjects/notes_application/test_note/"):
 	var dir = Directory.new()
