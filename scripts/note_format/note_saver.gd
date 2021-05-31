@@ -13,7 +13,7 @@ func register_tabs_model(tabs_model: TabsModel):
 
 func register_item(item: ItemModel):
 	if _current_tab != null:
-		_current_tab.drawing_area.register_item(item)
+		_current_tab.tab_model.drawing_area.register_item(item)
 
 func set_current_tab(tab: TabItemModel):
 	_current_tab = tab

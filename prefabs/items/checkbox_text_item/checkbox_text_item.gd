@@ -17,6 +17,7 @@ func _on_CheckBox_toggled(button_pressed):
 
 func _on_ItemComponent_instantiated_item(instance):
 	instance._item = CheckboxTextItemModel.new()
+	instance._item.text = $Label.text
 	NoteSaver.register_item(instance._item)
 
 func _process(delta):

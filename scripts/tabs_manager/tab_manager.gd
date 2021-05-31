@@ -10,7 +10,7 @@ func _ready():
 	
 	NoteSaver.connect("note_loaded", self, "_on_note_loaded")
 
-func add_tab(tab: TabItemModel):
+func add_tab(tab: TabModel):
 	_tabs_model.free_drawing_area_id += 1
 	tab.drawing_area.texture_id = _tabs_model.free_drawing_area_id
 	_tabs_model.tabs.append(tab)

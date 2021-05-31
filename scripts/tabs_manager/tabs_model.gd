@@ -3,7 +3,7 @@ extends Resource
 class_name TabsModel
 
 export(int) var free_drawing_area_id = 0
-export(Array) var tabs: Array#<TabItemModel>
+export(Array) var tabs: Array#<TabModel>
 
 func save(path):
 	for tab in tabs:
