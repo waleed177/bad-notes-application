@@ -11,14 +11,19 @@ func _process(delta):
 func _draw():
 	stroke_size = GlobalBrush.stroke_size
 	stroke_color = GlobalBrush.stroke_color
+	
 	var target_position = get_parent().get_parent().get_local_mouse_position() + get_parent().size/2
 	if _prev_pos == null:
 		_prev_pos = target_position
 	
+#	if Input.is_key_pressed(KEY_E):
+#			material.blend_mode = material.BLEND_MODE_SUB
+   
 	if _mouse_down:
 		draw_line(_prev_pos, target_position, stroke_color, stroke_size*2, false)
 		draw_circle(target_position, stroke_size, stroke_color)
-	
+
+		
 	_prev_pos = target_position
 
 

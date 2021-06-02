@@ -23,12 +23,16 @@ func setup(drawing_area: DrawingAreaModel):
 		_temp_sprite.texture = drawing_area.texture
 		$Canvas/Viewport.add_child(_temp_sprite)
 		_temp_sprite.position = $Canvas.position
-		
+		set_background(_drawing_area.background_texture)
 		for item in drawing_area.items:
 			item.spawn_into(self)
 	else:
 		_drawing_area.texture = $Canvas/Viewport.get_texture()
 	_drawing_area.drawing_area_node = self
+
+func set_background(texture: Texture):
+	$Canvas/ColorRect/TextureRect.texture = texture #Refactor this?
+	_drawing_area.background_texture = texture
 
 func _input(event):
 	if event is InputEventMouseButton:

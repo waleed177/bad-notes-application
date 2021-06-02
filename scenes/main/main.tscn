@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://prefabs/items/checkbox_text_item/checkbox_text_item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main/Tools.gd" type="Script" id=2]
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=3]
+[ext_resource path="res://scenes/main/LoadBackgroundImage.gd" type="Script" id=4]
 [ext_resource path="res://prefabs/items/checkbox_item/checkbox_item.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/main/Tabs.gd" type="Script" id=6]
 
@@ -106,6 +107,25 @@ margin_right = 165.0
 margin_bottom = 116.0
 text = "Load"
 
+[node name="LoadBackgroundImage" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 120.0
+margin_right = 165.0
+margin_bottom = 140.0
+text = "Load Background"
+script = ExtResource( 4 )
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Panel/VBoxContainer/LoadBackgroundImage"]
+margin_left = -859.0
+margin_top = -120.0
+margin_right = -359.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 150, 52.5 )
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/home/waldo/Documents/GodotProjects/notes_application"
+current_path = "/home/waldo/Documents/GodotProjects/notes_application/"
+
 [connection signal="pressed" from="CanvasLayer/Tabs/HBoxContainer/AddTabButton" to="CanvasLayer/Tabs" method="_on_AddTabButton_pressed"]
 [connection signal="color_changed" from="CanvasLayer/Tools/HBoxContainer/ColorPickerButton" to="CanvasLayer/Tools" method="_on_ColorPickerButton_color_changed"]
 [connection signal="pressed" from="CanvasLayer/Tools/HBoxContainer/SmallSize" to="CanvasLayer/Tools" method="_on_SmallSize_pressed"]
@@ -113,3 +133,5 @@ text = "Load"
 [connection signal="pressed" from="CanvasLayer/Tools/HBoxContainer/LargeSize" to="CanvasLayer/Tools" method="_on_LargeSize_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/LoadBackgroundImage" to="CanvasLayer/Panel/VBoxContainer/LoadBackgroundImage" method="_on_LoadBackgroundImage_pressed"]
+[connection signal="file_selected" from="CanvasLayer/Panel/VBoxContainer/LoadBackgroundImage/FileDialog" to="CanvasLayer/Panel/VBoxContainer/LoadBackgroundImage" method="_on_FileDialog_file_selected"]
